@@ -1,0 +1,288 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca de Redes | ipv4y6</title>
+    <style>
+        :root {
+            --brand-blue: #007185; /* Ajusta al azul real de ipv4y6.com si es distinto */
+            --amazon-orange: #FF9900;
+            --amazon-orange-hover: #FA8900;
+            --bg-body: #FFFFFF;
+            --bg-section: #EAEDED;
+            --text-main: #0F1111;
+            --text-muted: #565959;
+            --card-bg: #FAFAFA;
+            --border-color: #D5D9D9;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .site-header {
+            background-color: var(--bg-body);
+            border-bottom: 2px solid var(--brand-blue);
+            padding: 1.5rem 1rem;
+            text-align: center;
+        }
+        .site-header h1 {
+            font-size: 1.8rem;
+            color: var(--brand-blue);
+            margin-bottom: 0.25rem;
+        }
+        .site-header p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .notice {
+            background-color: #FFF8E7;
+            border-left: 4px solid var(--amazon-orange);
+            padding: 0.75rem 1rem;
+            margin: 1rem auto;
+            max-width: 900px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1rem 3rem;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            color: var(--brand-blue);
+            margin: 2.5rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .book-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            transition: box-shadow 0.2s ease;
+        }
+        .book-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .book-card img {
+            width: 100%;
+            height: 200px; /* Altura fija para uniformidad */
+            object-fit: contain;
+            margin-bottom: 1rem;
+            background-color: #fff;
+            border-radius: 4px;
+        }
+
+        .book-card h3 {
+            font-size: 1.05rem;
+            margin-bottom: 0.25rem;
+            color: var(--text-main);
+        }
+        .book-card .author {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+        .book-card .reason {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .btn-amazon {
+            display: block;
+            text-align: center;
+            background-color: var(--amazon-orange);
+            color: #111;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 0.7rem 1rem;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            transition: background-color 0.2s ease;
+            border: 1px solid #E68A00;
+        }
+        .btn-amazon:hover {
+            background-color: var(--amazon-orange-hover);
+            color: #111;
+        }
+
+        .site-footer {
+            background-color: var(--bg-section);
+            padding: 2rem 1rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 3rem;
+        }
+        .site-footer a {
+            color: var(--brand-blue);
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            .book-grid { grid-template-columns: 1fr; }
+            .site-header h1 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <h1>Biblioteca de Redes</h1>
+        <p>Los libros mejor valorados para dominar las redes, desde los fundamentos hasta la automatización.</p>
+    </header>
+
+    <div class="notice">
+        <strong>Nota:</strong> Los enlaces de esta página dirigen directamente a Amazon. Aún no soy afiliado, pero he seleccionado estos títulos por su calidad y aceptación en la comunidad.
+    </div>
+
+    <main class="container">
+
+        <!-- Fundamentos Universitarios -->
+        <h2 class="section-title" id="fundamentos">📚 Fundamentos Universitarios</h2>
+        <div class="book-grid">
+
+            <!-- Kurose & Ross -->
+            <article class="book-card">
+                <img src="https://m.media-amazon.com/images/P/1292405465.01._SCLZZZZZZZ_.jpg" 
+                     alt="Portada de Computer Networking: A Top-Down Approach" 
+                     loading="lazy">
+                <h3>Computer Networking: A Top-Down Approach</h3>
+                <p class="author">James F. Kurose & Keith W. Ross</p>
+                <p class="reason">El texto de referencia indiscutible. Su enfoque descendente lo hace ideal para principiantes.</p>
+                <a class="btn-amazon" href="https://www.amazon.com/dp/1292405465" target="_blank" rel="noopener noreferrer">Ver en Amazon</a>
+            </article>
+
+            <!-- Tanenbaum -->
+            <article class="book-card">
+                <img src="https://m.media-amazon.com/images/P/1292374063.01._SCLZZZZZZZ_.jpg" 
+                     alt="Portada de Computer Networks (Tanenbaum)" 
+                     loading="lazy">
+                <h3>Computer Networks (Global Edition)</h3>
+                <p class="author">Andrew S. Tanenbaum et al.</p>
+                <p class="reason">Un clásico que explica cómo funcionan las redes “desde dentro hacia fuera”. La 6ª edición global es la más actual.</p>
+                <a class="btn-amazon" href="https://www.amazon.com/dp/1292374063" target="_blank" rel="noopener noreferrer">Ver en Amazon</a>
+            </article>
+
+            <!-- Peterson & Davie -->
+            <article class="book-card">
+                <img src="https://m.media-amazon.com/images/P/0128182008.01._SCLZZZZZZZ_.jpg" 
+                     alt="Portada de Computer Networks: A Systems Approach" 
+                     loading="lazy">
+                <h3>Computer Networks: A Systems Approach</h3>
+                <p class="author">Larry L. Peterson & Bruce S. Davie</p>
+                <p class="reason">Recomendado en universidades como Cambridge y MIT. Se centra en los principios de diseño de sistemas reales.</p>
+                <a class="btn-amazon" href="https://www.amazon.com/dp/0128182008" target="_blank" rel="noopener noreferrer">Ver en Amazon</a>
+            </article>
+
+        </div>
+
+        <!-- Certificaciones -->
+        <h2 class="section-title" id="certificaciones">🎯 Guías de Certificación</h2>
+        <div class="book-grid">
+
+            <!-- CompTIA Network+ -->
+            <article class="book-card">
+                <img src="https://m.media-amazon.com/images/P/1264269056.01._SCLZZZZZZZ_.jpg" 
+                     alt="Portada de CompTIA Network+ All-in-One Exam Guide" 
+                     loading="lazy">
+                <h3>CompTIA Network+ All-in-One Exam Guide</h3>
+                <p class="author">Mike Meyers</p>
+                <p class="reason">La guía más vendida para la certificación Network+. Cubre el 100% de los objetivos del examen.</p>
+                <a class="btn-amazon" href="https://www.amazon.com/dp/1264269056" target="_blank" rel="noopener noreferrer">Ver en Amazon</a>
+            </article>
+
+            <!-- Redes Cisco (Ariganello) -->
+            <article class="book-card">
+                <img src="https://m.media-amazon.com/images/P/8499649300.01._SCLZZZZZZZ_.jpg" 
+                     alt="Portada de Redes Cisco: Guía de estudio para la certificación CCNA" 
+                     loading="lazy">
+                <h3>Redes Cisco: Guía de estudio para la certificación CCNA</h3>
+                <p class="author">Ernesto Ariganello</p>
+                <p class="reason">La guía en español más popular para CCNA. Actualizada para las versiones más recientes del examen.</p>
+                <a class="btn-amazon" href="https://www.amazon.com/dp/8499649300" target="_blank" rel="noopener noreferrer">Ver en Amazon</a>
+            </article>
+
+            <!-- El Único Libro -->
+            <article class="book-card">
+                <img src="https://m.media-amazon.com/images/P/B09S8T937G.01._SCLZZZZZZZ_.jpg" 
+                     alt="Portada de El Único Libro Sobre Redes que Necesitas" 
+                     loading="lazy">
+                <h3>El Único Libro Sobre Redes que Necesitas</h3>
+                <p class="author">David Gonzalez</p>
+                <p class="reason">Enfoque práctico para principiantes y para preparar el CCNA 200-301. Muy popular en el ámbito hispanohablante.</p>
+                <a class="btn-amazon" href="https://www.amazon.com/dp/B09S8T937G" target="_blank" rel="noopener noreferrer">Ver en Amazon</a>
+            </article>
+
+        </div>
+
+        <!-- Profesionales -->
+        <h2 class="section-title" id="profesionales">🛠️ Para Profesionales</h2>
+        <div class="book-grid">
+
+            <!-- Network Warrior -->
+            <article class="book-card">
+                <img src="https://m.media-amazon.com/images/P/1449387861.01._SCLZZZZZZZ_.jpg" 
+                     alt="Portada de Network Warrior" 
+                     loading="lazy">
+                <h3>Network Warrior</h3>
+                <p class="author">Gary A. Donahue</p>
+                <p class="reason">El libro “post-CCNA” por excelencia. Cubre cableado, switches, firewalls y diseño real.</p>
+                <a class="btn-amazon" href="https://www.amazon.com/dp/1449387861" target="_blank" rel="noopener noreferrer">Ver en Amazon</a>
+            </article>
+
+            <!-- TCP/IP Illustrated -->
+            <article class="book-card">
+                <img src="https://m.media-amazon.com/images/P/0321336313.01._SCLZZZZZZZ_.jpg" 
+                     alt="Portada de TCP/IP Illustrated, Volume 1" 
+                     loading="lazy">
+                <h3>TCP/IP Illustrated, Volume 1</h3>
+                <p class="author">W. Richard Stevens & Kevin R. Fall</p>
+                <p class="reason">El clásico indiscutible sobre TCP/IP. Sigue siendo la referencia mejor valorada para dominar los protocolos.</p>
+                <a class="btn-amazon" href="https://www.amazon.com/dp/0321336313" target="_blank" rel="noopener noreferrer">Ver en Amazon</a>
+            </article>
+
+            <!-- Network Programmability and Automation -->
+            <article class="book-card">
+                <img src="https://m.media-amazon.com/images/P/1491931256.01._SCLZZZZZZZ_.jpg" 
+                     alt="Portada de Network Programmability and Automation" 
+                     loading="lazy">
+                <h3>Network Programmability and Automation</h3>
+                <p class="author">Jason Edelman et al.</p>
+                <p class="reason">La referencia moderna para dar el salto a las redes programables con Python, Linux, JSON y YAML.</p>
+                <a class="btn-amazon" href="https://www.amazon.com/dp/1491931256" target="_blank" rel="noopener noreferrer">Ver en Amazon</a>
+            </article>
+
+        </div>
+
+    </main>
+
+    <footer class="site-footer">
+        <p><a href="https://www.ipv4y6.com">Volver a ipv4y6.com</a></p>
+        <p>Los enlaces de esta página son de afiliado de Amazon en el futuro. Actualmente no generan comisiones.</p>
+    </footer>
+
+</body>
+</html>
