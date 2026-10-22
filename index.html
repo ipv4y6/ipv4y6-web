@@ -1,10 +1,10 @@
-Ôªø<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ipv4y6 | Centro de Recursos de Redes</title>
-    <meta name="description" content="Enlaces a documentaci√≥n de fabricantes, simuladores de redes, herramientas y servicios. Tu centro de recursos para IPv4 e IPv6.">
+    <meta name="description" content="Enlaces a documentaciÛn de fabricantes, simuladores de redes, herramientas y servicios. Tu centro de recursos para IPv4 e IPv6.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -56,7 +56,7 @@
             padding: 80px 0;
         }
 
-        /* HEADER Y NAVEGACI√ìN */
+        /* HEADER Y NAVEGACI”N */
         header {
             position: fixed;
             top: 0;
@@ -190,7 +190,7 @@
             color: var(--bg-color);
         }
 
-        /* T√çTULOS DE SECCI√ìN */
+        /* TÕTULOS DE SECCI”N */
         .section-title {
             font-size: 2rem;
             font-weight: 700;
@@ -272,7 +272,7 @@
             color: var(--bg-color);
         }
 
-        /* SECCI√ìN COLABORAR (DESTACADA) */
+        /* SECCI”N COLABORAR (DESTACADA) */
         #colaborar {
             background-color: rgba(0, 168, 232, 0.05);
             border-top: 1px solid rgba(0, 168, 232, 0.2);
@@ -313,7 +313,7 @@
             font-size: 1.5rem;
         }
 
-        /* MEN√ö DESPLEGABLE (PAYPAL, VISA, CRIPTO) */
+        /* MEN⁄ DESPLEGABLE (PAYPAL, VISA, CRIPTO) */
         .dropdown {
             position: relative;
             display: inline-block;
@@ -505,7 +505,7 @@
             </div>
             
             <div class="nav-right">
-                <!-- BOT√ìN DE CAMBIO DE IDIOMA -->
+                <!-- BOT”N DE CAMBIO DE IDIOMA -->
                 <button id="langToggle" class="lang-btn" onclick="toggleLanguage()">EN</button>
                 
                 <ul class="nav-links" id="navLinks">
@@ -634,8 +634,8 @@
             <div class="card">
                 <div class="card-icon"><i class="fas fa-shopping-cart"></i></div>
                 <h3>Amazon</h3>
-                <p data-i18n="amazon_desc">Explora la tienda de Amazon para encontrar productos y equipos de redes.</p>
-                <a href="https://www.amazon.com" target="_blank" class="card-link" data-i18n="btn_go_amazon">Ir a Amazon</a>
+                <p data-i18n="amazon_desc">Explora la tienda de Amazon para encontrar productos y libros de redes.</p>
+                <a href="/amazon/" target="_blank" class="card-link" data-i18n="btn_go_amazon">Ir a Amazon</a>
             </div>
             <div class="card">
                 <div class="card-icon"><i class="fas fa-chart-line"></i></div>
@@ -652,7 +652,7 @@
         <p style="text-align: center; color: var(--text-sub); margin-bottom: 20px;" data-i18n="collaborate_desc">Tu apoyo nos ayuda a mantener y mejorar este centro de recursos gratuitos.</p>
         <div class="payment-methods">
             
-            <!-- MEN√ö DESPLEGABLE DE PAYPAL (AHORA CON USDT) -->
+            <!-- MEN⁄ DESPLEGABLE DE PAYPAL (AHORA CON USDT) -->
             <div class="dropdown">
                 <button class="payment-btn dropdown-toggle">
                     <i class="fab fa-paypal" style="color: #00457C;"></i> PayPal
@@ -666,7 +666,7 @@
                 </div>
             </div>
 
-            <!-- MEN√ö DESPLEGABLE DE CRIPTO -->
+            <!-- MEN⁄ DESPLEGABLE DE CRIPTO -->
             <div class="dropdown">
                 <button class="payment-btn dropdown-toggle">
                     <i class="fab fa-bitcoin" style="color: #F7931A;"></i> Cripto
@@ -705,7 +705,7 @@
                 </div>
             </div>
 
-            <!-- MEN√ö DESPLEGABLE DE VISA/MASTERCARD (AHORA CON USDT) -->
+            <!-- MEN⁄ DESPLEGABLE DE VISA/MASTERCARD (AHORA CON USDT) -->
             <div class="dropdown">
                 <button class="payment-btn dropdown-toggle">
                     <i class="fas fa-credit-card" style="color: #1A1F71;"></i> Visa / MasterCard
@@ -754,7 +754,7 @@
 
     <!-- JAVASCRIPT -->
     <script>
-        // --- SISTEMA DE TRADUCCI√ìN ---
+        // --- SISTEMA DE TRADUCCI”N ---
         const translations = {
             es: {
                 nav_home: "Inicio",
@@ -792,7 +792,7 @@
                 btn_visit_keycdn: "Visitar KeyCDN Tools",
                 btn_visit_kloth: "Visitar Kloth.net",
                 title_products: "Productos y Servicios",
-                amazon_desc: "Explora la tienda de Amazon para encontrar productos y equipos de redes.",
+                amazon_desc: "Explora la tienda de Amazon para encontrar productos y libros de redes.",
                 hotmart_desc: "Servicios y soluciones digitales. Visita el sitio web de Hotmart para m&aacute;s informaci&oacute;n.",
                 btn_go_amazon: "Ir a Amazon",
                 btn_go_hotmart: "Ir a Hotmart",
@@ -854,7 +854,7 @@
             currentLang = lang;
             localStorage.setItem('lang', lang);
             
-            // Cambiar el texto del bot√≥n
+            // Cambiar el texto del botÛn
             const langBtn = document.getElementById('langToggle');
             langBtn.textContent = lang === 'es' ? 'EN' : 'ES';
             
@@ -874,11 +874,11 @@
             setLanguage(currentLang === 'es' ? 'en' : 'es');
         }
 
-        // Inicializar el idioma al cargar la p√°gina
+        // Inicializar el idioma al cargar la p·gina
         document.addEventListener('DOMContentLoaded', () => {
             setLanguage(currentLang);
 
-            // L√≥gica del men√∫ m√≥vil
+            // LÛgica del men˙ mÛvil
             const menuToggle = document.getElementById('menuToggle');
             const navLinks = document.getElementById('navLinks');
 
@@ -893,7 +893,7 @@
             });
         });
 
-        // Funci√≥n para copiar al portapapeles (se mantiene igual)
+        // FunciÛn para copiar al portapapeles (se mantiene igual)
         function copyToClipboard(text, btn) {
             navigator.clipboard.writeText(text).then(() => {
                 const originalIcon = btn.innerHTML;
