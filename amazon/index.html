@@ -29,11 +29,13 @@
             line-height: 1.6;
         }
 
+        /* ===== Cabecera con botón de idioma ===== */
         .site-header {
             background-color: var(--bg-body);
             border-bottom: 2px solid var(--brand-blue);
             padding: 1.5rem 1rem;
             text-align: center;
+            position: relative;
         }
         .site-header h1 {
             font-size: 1.8rem;
@@ -43,6 +45,40 @@
         .site-header p {
             color: var(--text-muted);
             font-size: 0.95rem;
+        }
+
+        /* Toggle de idioma */
+        .lang-toggle {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            display: inline-flex;
+            align-items: center;
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            z-index: 10;
+        }
+        .lang-btn {
+            background: transparent;
+            border: none;
+            padding: 0.3rem 0.65rem;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            cursor: pointer;
+            border-radius: 16px;
+            font-family: inherit;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+        .lang-btn.active {
+            background: var(--brand-blue);
+            color: #fff;
+        }
+        .lang-btn:hover:not(.active) {
+            color: var(--brand-blue);
         }
 
         /* ===== Banda especial de redes sociales (compacta) ===== */
@@ -89,9 +125,7 @@
             height: 18px;
             display: block;
         }
-        .social-icons svg {
-            fill: #FFFFFF;
-        }
+        .social-icons svg { fill: #FFFFFF; }
         .social-youtube   { background-color: var(--yt); }
         .social-facebook  { background-color: var(--fb); }
         .social-linkedin  { background-color: var(--li); }
@@ -128,9 +162,7 @@
             flex-direction: column;
             transition: box-shadow 0.2s ease;
         }
-        .book-card:hover {
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
+        .book-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
 
         .book-card img {
             width: 100%;
@@ -188,24 +220,16 @@
             color: var(--brand-blue);
             text-decoration: none;
         }
-        .site-footer a:hover {
-            text-decoration: underline;
-        }
+        .site-footer a:hover { text-decoration: underline; }
 
-        .footer-contacts {
-            margin-bottom: 1.25rem;
-        }
+        .footer-contacts { margin-bottom: 1.25rem; }
         .footer-contacts h3 {
             font-size: 0.95rem;
             color: var(--brand-blue);
             margin-bottom: 0.5rem;
         }
-        .footer-contacts p {
-            margin: 0.15rem 0;
-        }
-        .footer-contacts a {
-            font-weight: 600;
-        }
+        .footer-contacts p { margin: 0.15rem 0; }
+        .footer-contacts a { font-weight: 600; }
 
         .footer-nav {
             display: flex;
@@ -215,12 +239,8 @@
             gap: 0.5rem 1rem;
             margin-bottom: 1rem;
         }
-        .footer-nav .separator {
-            color: var(--border-color);
-        }
-        .footer-nav a {
-            font-weight: 600;
-        }
+        .footer-nav .separator { color: var(--border-color); }
+        .footer-nav a { font-weight: 600; }
 
         .footer-note {
             font-size: 0.8rem;
@@ -231,35 +251,53 @@
         @media (max-width: 600px) {
             .book-grid { grid-template-columns: 1fr; }
             .site-header h1 { font-size: 1.5rem; }
+            .site-header { padding-top: 3.2rem; } /* Espacio para el toggle en móvil */
+            .lang-toggle { top: 0.75rem; right: 0.75rem; }
+            .lang-btn { padding: 0.25rem 0.55rem; font-size: 0.72rem; }
             .social-icons a { width: 34px; height: 34px; }
-            .social-icons img,
-            .social-icons svg { width: 17px; height: 17px; }
+            .social-icons img, .social-icons svg { width: 17px; height: 17px; }
         }
     </style>
 </head>
 <body>
 
     <header class="site-header">
-        <h1>Biblioteca de Redes ipv4y6.com</h1>
-        <p>Los libros mejor valorados para dominar las redes, desde los fundamentos hasta la automatización.</p>
+        <!-- Botón de cambio de idioma -->
+        <div class="lang-toggle" role="group" aria-label="Language selector">
+            <button type="button" class="lang-btn" data-lang="es" onclick="setLang('es')">ES</button>
+            <button type="button" class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+        </div>
+
+        <h1 data-es="Biblioteca de Redes ipv4y6.com" data-en="Network Library ipv4y6.com">Biblioteca de Redes ipv4y6.com</h1>
+        <p data-es="Los libros mejor valorados para dominar las redes, desde los fundamentos hasta la automatización."
+           data-en="The best-rated books to master networking, from fundamentals to automation.">
+            Los libros mejor valorados para dominar las redes, desde los fundamentos hasta la automatización.
+        </p>
     </header>
 
     <!-- ===== Redes sociales (banda compacta) ===== -->
     <section class="social-band">
-        <h2>Conecta con ipv4y6.com</h2>
-        <p>Síguenos para más contenido sobre REDES</p>
+        <h2 data-es="Conecta con ipv4y6.com" data-en="Connect with ipv4y6.com">Conecta con ipv4y6.com</h2>
+        <p data-es="Síguenos para más contenido sobre REDES" data-en="Follow us for more content about NETWORKS">Síguenos para más contenido sobre REDES</p>
         <div class="social-icons">
-            <a href="https://www.youtube.com/@ipv4y6" class="social-youtube" target="_blank" rel="noopener noreferrer" aria-label="Canal de YouTube de ipv4y6">
+            <a href="https://www.youtube.com/@ipv4y6" class="social-youtube" target="_blank" rel="noopener noreferrer"
+               aria-label="Canal de YouTube de ipv4y6"
+               data-aria-es="Canal de YouTube de ipv4y6" data-aria-en="ipv4y6 YouTube channel">
                 <img src="https://cdn.simpleicons.org/youtube/FFFFFF" alt="" loading="lazy">
             </a>
-            <a href="https://www.instagram.com/ipv4y6/" class="social-instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram de ipv4y6">
+            <a href="https://www.instagram.com/ipv4y6/" class="social-instagram" target="_blank" rel="noopener noreferrer"
+               aria-label="Instagram de ipv4y6"
+               data-aria-es="Instagram de ipv4y6" data-aria-en="ipv4y6 Instagram">
                 <img src="https://cdn.simpleicons.org/instagram/FFFFFF" alt="" loading="lazy">
             </a>
-            <a href="https://www.facebook.com/ipv4y6" class="social-facebook" target="_blank" rel="noopener noreferrer" aria-label="Facebook de ipv4y6">
+            <a href="https://www.facebook.com/ipv4y6" class="social-facebook" target="_blank" rel="noopener noreferrer"
+               aria-label="Facebook de ipv4y6"
+               data-aria-es="Facebook de ipv4y6" data-aria-en="ipv4y6 Facebook">
                 <img src="https://cdn.simpleicons.org/facebook/FFFFFF" alt="" loading="lazy">
             </a>
-            <a href="https://www.linkedin.com/in/ipv4y6" class="social-linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de ipv4y6">
-                <!-- LinkedIn en SVG inline porque Simple Icons lo retiró de su CDN -->
+            <a href="https://www.linkedin.com/in/ipv4y6" class="social-linkedin" target="_blank" rel="noopener noreferrer"
+               aria-label="LinkedIn de ipv4y6"
+               data-aria-es="LinkedIn de ipv4y6" data-aria-en="ipv4y6 LinkedIn">
                 <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                 </svg>
@@ -270,100 +308,145 @@
     <main class="container">
 
         <!-- Fundamentos Universitarios -->
-        <h2 class="section-title" id="fundamentos">📚 Fundamentos Universitarios</h2>
+        <h2 class="section-title" id="fundamentos" data-es="📚 Fundamentos Universitarios" data-en="📚 University Fundamentals">📚 Fundamentos Universitarios</h2>
         <div class="book-grid">
 
             <article class="book-card">
-                <img src="https://m.media-amazon.com/images/P/1292405465.01._SCLZZZZZZZ_.jpg" 
-                     alt="Portada de Computer Networking: A Top-Down Approach" loading="lazy">
+                <img src="https://m.media-amazon.com/images/P/1292405465.01._SCLZZZZZZZ_.jpg"
+                     alt="Computer Networking: A Top-Down Approach" loading="lazy">
                 <h3>Computer Networking: A Top-Down Approach</h3>
-                <p class="author">James F. Kurose & Keith W. Ross</p>
-                <p class="reason">El texto de referencia indiscutible. Su enfoque descendente lo hace ideal para principiantes.</p>
-                <a class="btn-amazon" href="https://www.amazon.com/dp/1292405465" target="_blank" rel="noopener noreferrer">Ver en Amazon</a>
+                <p class="author">James F. Kurose &amp; Keith W. Ross</p>
+                <p class="reason"
+                   data-es="El texto de referencia indiscutible. Su enfoque descendente lo hace ideal para principiantes."
+                   data-en="The undisputed reference text. Its top-down approach makes it ideal for beginners.">
+                    El texto de referencia indiscutible. Su enfoque descendente lo hace ideal para principiantes.
+                </p>
+                <a class="btn-amazon" href="https://www.amazon.com/dp/1292405465" target="_blank" rel="noopener noreferrer"
+                   data-es="Ver en Amazon" data-en="View on Amazon">Ver en Amazon</a>
             </article>
 
             <article class="book-card">
-                <img src="https://m.media-amazon.com/images/P/1292374063.01._SCLZZZZZZZ_.jpg" 
-                     alt="Portada de Computer Networks (Tanenbaum)" loading="lazy">
+                <img src="https://m.media-amazon.com/images/P/1292374063.01._SCLZZZZZZZ_.jpg"
+                     alt="Computer Networks (Tanenbaum)" loading="lazy">
                 <h3>Computer Networks (Global Edition)</h3>
                 <p class="author">Andrew S. Tanenbaum et al.</p>
-                <p class="reason">Un clásico que explica cómo funcionan las redes “desde dentro hacia fuera”. La 6ª edición global es la más actual.</p>
-                <a class="btn-amazon" href="https://www.amazon.com/dp/1292374063" target="_blank" rel="noopener noreferrer">Ver en Amazon</a>
+                <p class="reason"
+                   data-es="Un clásico que explica cómo funcionan las redes &quot;desde dentro hacia fuera&quot;. La 6ª edición global es la más actual."
+                   data-en="A classic that explains how networks work 'from the inside out'. The 6th global edition is the most current.">
+                    Un clásico que explica cómo funcionan las redes “desde dentro hacia fuera”. La 6ª edición global es la más actual.
+                </p>
+                <a class="btn-amazon" href="https://www.amazon.com/dp/1292374063" target="_blank" rel="noopener noreferrer"
+                   data-es="Ver en Amazon" data-en="View on Amazon">Ver en Amazon</a>
             </article>
 
             <article class="book-card">
-                <img src="https://m.media-amazon.com/images/P/0128182008.01._SCLZZZZZZZ_.jpg" 
-                     alt="Portada de Computer Networks: A Systems Approach" loading="lazy">
+                <img src="https://m.media-amazon.com/images/P/0128182008.01._SCLZZZZZZZ_.jpg"
+                     alt="Computer Networks: A Systems Approach" loading="lazy">
                 <h3>Computer Networks: A Systems Approach</h3>
-                <p class="author">Larry L. Peterson & Bruce S. Davie</p>
-                <p class="reason">Recomendado en universidades como Cambridge y MIT. Se centra en los principios de diseño de sistemas reales.</p>
-                <a class="btn-amazon" href="https://www.amazon.com/dp/0128182008" target="_blank" rel="noopener noreferrer">Ver en Amazon</a>
+                <p class="author">Larry L. Peterson &amp; Bruce S. Davie</p>
+                <p class="reason"
+                   data-es="Recomendado en universidades como Cambridge y MIT. Se centra en los principios de diseño de sistemas reales."
+                   data-en="Recommended at universities like Cambridge and MIT. Focuses on the design principles of real systems.">
+                    Recomendado en universidades como Cambridge y MIT. Se centra en los principios de diseño de sistemas reales.
+                </p>
+                <a class="btn-amazon" href="https://www.amazon.com/dp/0128182008" target="_blank" rel="noopener noreferrer"
+                   data-es="Ver en Amazon" data-en="View on Amazon">Ver en Amazon</a>
             </article>
 
         </div>
 
         <!-- Certificaciones -->
-        <h2 class="section-title" id="certificaciones">🎯 Guías de Certificación</h2>
+        <h2 class="section-title" id="certificaciones" data-es="🎯 Guías de Certificación" data-en="🎯 Certification Guides">🎯 Guías de Certificación</h2>
         <div class="book-grid">
 
             <article class="book-card">
-                <img src="https://m.media-amazon.com/images/P/1264269056.01._SCLZZZZZZZ_.jpg" 
-                     alt="Portada de CompTIA Network+ All-in-One Exam Guide" loading="lazy">
+                <img src="https://m.media-amazon.com/images/P/1264269056.01._SCLZZZZZZZ_.jpg"
+                     alt="CompTIA Network+ All-in-One Exam Guide" loading="lazy">
                 <h3>CompTIA Network+ All-in-One Exam Guide</h3>
                 <p class="author">Mike Meyers</p>
-                <p class="reason">La guía más vendida para la certificación Network+. Cubre el 100% de los objetivos del examen.</p>
-                <a class="btn-amazon" href="https://www.amazon.com/dp/1264269056" target="_blank" rel="noopener noreferrer">Ver en Amazon</a>
+                <p class="reason"
+                   data-es="La guía más vendida para la certificación Network+. Cubre el 100% de los objetivos del examen."
+                   data-en="The best-selling guide for the Network+ certification. Covers 100% of the exam objectives.">
+                    La guía más vendida para la certificación Network+. Cubre el 100% de los objetivos del examen.
+                </p>
+                <a class="btn-amazon" href="https://www.amazon.com/dp/1264269056" target="_blank" rel="noopener noreferrer"
+                   data-es="Ver en Amazon" data-en="View on Amazon">Ver en Amazon</a>
             </article>
 
             <article class="book-card">
-                <img src="https://m.media-amazon.com/images/P/8499649300.01._SCLZZZZZZZ_.jpg" 
-                     alt="Portada de Redes Cisco: Guía de estudio para la certificación CCNA" loading="lazy">
+                <img src="https://m.media-amazon.com/images/P/8499649300.01._SCLZZZZZZZ_.jpg"
+                     alt="Redes Cisco: Guía de estudio para la certificación CCNA" loading="lazy">
                 <h3>Redes Cisco: Guía de estudio para la certificación CCNA</h3>
                 <p class="author">Ernesto Ariganello</p>
-                <p class="reason">La guía en español más popular para CCNA. Actualizada para las versiones más recientes del examen.</p>
-                <a class="btn-amazon" href="https://www.amazon.com/dp/8499649300" target="_blank" rel="noopener noreferrer">Ver en Amazon</a>
+                <p class="reason"
+                   data-es="La guía en español más popular para CCNA. Actualizada para las versiones más recientes del examen."
+                   data-en="The most popular Spanish guide for CCNA. Updated for the latest exam versions.">
+                    La guía en español más popular para CCNA. Actualizada para las versiones más recientes del examen.
+                </p>
+                <a class="btn-amazon" href="https://www.amazon.com/dp/8499649300" target="_blank" rel="noopener noreferrer"
+                   data-es="Ver en Amazon" data-en="View on Amazon">Ver en Amazon</a>
             </article>
 
             <article class="book-card">
-                <img src="https://m.media-amazon.com/images/P/B09S8T937G.01._SCLZZZZZZZ_.jpg" 
-                     alt="Portada de El Único Libro Sobre Redes que Necesitas" loading="lazy">
+                <img src="https://m.media-amazon.com/images/P/B09S8T937G.01._SCLZZZZZZZ_.jpg"
+                     alt="El Único Libro Sobre Redes que Necesitas" loading="lazy">
                 <h3>El Único Libro Sobre Redes que Necesitas</h3>
                 <p class="author">David Gonzalez</p>
-                <p class="reason">Enfoque práctico para principiantes y para preparar el CCNA 200-301. Muy popular en el ámbito hispanohablante.</p>
-                <a class="btn-amazon" href="https://www.amazon.com/dp/B09S8T937G" target="_blank" rel="noopener noreferrer">Ver en Amazon</a>
+                <p class="reason"
+                   data-es="Enfoque práctico para principiantes y para preparar el CCNA 200-301. Muy popular en el ámbito hispanohablante."
+                   data-en="A practical approach for beginners and for preparing for the CCNA 200-301. Very popular among Spanish speakers.">
+                    Enfoque práctico para principiantes y para preparar el CCNA 200-301. Muy popular en el ámbito hispanohablante.
+                </p>
+                <a class="btn-amazon" href="https://www.amazon.com/dp/B09S8T937G" target="_blank" rel="noopener noreferrer"
+                   data-es="Ver en Amazon" data-en="View on Amazon">Ver en Amazon</a>
             </article>
 
         </div>
 
         <!-- Profesionales -->
-        <h2 class="section-title" id="profesionales">🛠️ Para Profesionales</h2>
+        <h2 class="section-title" id="profesionales" data-es="🛠️ Para Profesionales" data-en="🛠️ For Professionals">🛠️ Para Profesionales</h2>
         <div class="book-grid">
 
             <article class="book-card">
-                <img src="https://m.media-amazon.com/images/P/1449387861.01._SCLZZZZZZZ_.jpg" 
-                     alt="Portada de Network Warrior" loading="lazy">
+                <img src="https://m.media-amazon.com/images/P/1449387861.01._SCLZZZZZZZ_.jpg"
+                     alt="Network Warrior" loading="lazy">
                 <h3>Network Warrior</h3>
                 <p class="author">Gary A. Donahue</p>
-                <p class="reason">El libro “post-CCNA” por excelencia. Cubre cableado, switches, firewalls y diseño real.</p>
-                <a class="btn-amazon" href="https://www.amazon.com/dp/1449387861" target="_blank" rel="noopener noreferrer">Ver en Amazon</a>
+                <p class="reason"
+                   data-es="El libro &quot;post-CCNA&quot; por excelencia. Cubre cableado, switches, firewalls y diseño real."
+                   data-en="The quintessential 'post-CCNA' book. Covers cabling, switches, firewalls, and real-world design.">
+                    El libro “post-CCNA” por excelencia. Cubre cableado, switches, firewalls y diseño real.
+                </p>
+                <a class="btn-amazon" href="https://www.amazon.com/dp/1449387861" target="_blank" rel="noopener noreferrer"
+                   data-es="Ver en Amazon" data-en="View on Amazon">Ver en Amazon</a>
             </article>
 
             <article class="book-card">
-                <img src="https://m.media-amazon.com/images/P/0321336313.01._SCLZZZZZZZ_.jpg" 
-                     alt="Portada de TCP/IP Illustrated, Volume 1" loading="lazy">
+                <img src="https://m.media-amazon.com/images/P/0321336313.01._SCLZZZZZZZ_.jpg"
+                     alt="TCP/IP Illustrated, Volume 1" loading="lazy">
                 <h3>TCP/IP Illustrated, Volume 1</h3>
-                <p class="author">W. Richard Stevens & Kevin R. Fall</p>
-                <p class="reason">El clásico indiscutible sobre TCP/IP. Sigue siendo la referencia mejor valorada para dominar los protocolos.</p>
-                <a class="btn-amazon" href="https://www.amazon.com/dp/0321336313" target="_blank" rel="noopener noreferrer">Ver en Amazon</a>
+                <p class="author">W. Richard Stevens &amp; Kevin R. Fall</p>
+                <p class="reason"
+                   data-es="El clásico indiscutible sobre TCP/IP. Sigue siendo la referencia mejor valorada para dominar los protocolos."
+                   data-en="The undisputed classic on TCP/IP. Still the highest-rated reference for mastering the protocols.">
+                    El clásico indiscutible sobre TCP/IP. Sigue siendo la referencia mejor valorada para dominar los protocolos.
+                </p>
+                <a class="btn-amazon" href="https://www.amazon.com/dp/0321336313" target="_blank" rel="noopener noreferrer"
+                   data-es="Ver en Amazon" data-en="View on Amazon">Ver en Amazon</a>
             </article>
 
             <article class="book-card">
-                <img src="https://m.media-amazon.com/images/P/1491931256.01._SCLZZZZZZZ_.jpg" 
-                     alt="Portada de Network Programmability and Automation" loading="lazy">
+                <img src="https://m.media-amazon.com/images/P/1491931256.01._SCLZZZZZZZ_.jpg"
+                     alt="Network Programmability and Automation" loading="lazy">
                 <h3>Network Programmability and Automation</h3>
                 <p class="author">Jason Edelman et al.</p>
-                <p class="reason">La referencia moderna para dar el salto a las redes programables con Python, Linux, JSON y YAML.</p>
-                <a class="btn-amazon" href="https://www.amazon.com/dp/1491931256" target="_blank" rel="noopener noreferrer">Ver en Amazon</a>
+                <p class="reason"
+                   data-es="La referencia moderna para dar el salto a las redes programables con Python, Linux, JSON y YAML."
+                   data-en="The modern reference for taking the leap into programmable networks with Python, Linux, JSON, and YAML.">
+                    La referencia moderna para dar el salto a las redes programables con Python, Linux, JSON y YAML.
+                </p>
+                <a class="btn-amazon" href="https://www.amazon.com/dp/1491931256" target="_blank" rel="noopener noreferrer"
+                   data-es="Ver en Amazon" data-en="View on Amazon">Ver en Amazon</a>
             </article>
 
         </div>
@@ -373,19 +456,64 @@
     <footer class="site-footer">
 
         <div class="footer-contacts">
-            <h3>Contacto</h3>
+            <h3 data-es="Contacto" data-en="Contact">Contacto</h3>
             <p><a href="mailto:info@ipv4y6.com">info@ipv4y6.com</a></p>
             <p><a href="mailto:ipv4y6@gmail.com">ipv4y6@gmail.com</a></p>
         </div>
 
         <div class="footer-nav">
-            <a href="https://www.ipv4y6.com">Volver a ipv4y6.com</a>
+            <a href="https://www.ipv4y6.com" data-es="Volver a ipv4y6.com" data-en="Back to ipv4y6.com">Volver a ipv4y6.com</a>
             <span class="separator">|</span>
-            <a href="https://www.ipv4y6.com/#colaborar">Colaborar</a>
+            <a href="https://www.ipv4y6.com/#colaborar" data-es="Colaborar" data-en="Collaborate">Colaborar</a>
         </div>
 
-        <p class="footer-note">Los enlaces de esta página serán de afiliado de Amazon en el futuro. Actualmente no generan comisiones.</p>
+        <p class="footer-note"
+           data-es="Los enlaces de esta página son de afiliado de Amazon en el futuro. Actualmente no generan comisiones."
+           data-en="The links on this page will be Amazon affiliate links in the future. Currently they do not generate commissions.">
+            Los enlaces de esta página son de afiliado de Amazon en el futuro. Actualmente no generan comisiones.
+        </p>
     </footer>
+
+    <!-- ===== Lógica de cambio de idioma ===== -->
+    <script>
+        (function () {
+            var TITLES = {
+                es: 'Biblioteca de Redes | ipv4y6.com',
+                en: 'Network Library | ipv4y6.com'
+            };
+
+            window.setLang = function (lang) {
+                if (lang !== 'es' && lang !== 'en') return;
+
+                document.documentElement.lang = lang;
+                document.title = TITLES[lang];
+
+                // Textos visibles
+                document.querySelectorAll('[data-' + lang + ']').forEach(function (el) {
+                    el.textContent = el.getAttribute('data-' + lang);
+                });
+
+                // Atributos aria-label traducidos
+                document.querySelectorAll('[data-aria-' + lang + ']').forEach(function (el) {
+                    el.setAttribute('aria-label', el.getAttribute('data-aria-' + lang));
+                });
+
+                // Estado del toggle
+                document.querySelectorAll('.lang-btn').forEach(function (btn) {
+                    btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+                });
+
+                try { localStorage.setItem('ipv4y6-lang', lang); } catch (e) {}
+            };
+
+            // Idioma inicial: preferencia guardada > idioma del navegador > español
+            var stored = null;
+            try { stored = localStorage.getItem('ipv4y6-lang'); } catch (e) {}
+            var browserLang = (navigator.language || 'es').slice(0, 2).toLowerCase();
+            var initial = stored || (browserLang === 'en' ? 'en' : 'es');
+            window.setLang(initial);
+        })();
+    </script>
 
 </body>
 </html>
