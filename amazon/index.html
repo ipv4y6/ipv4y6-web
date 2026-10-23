@@ -29,7 +29,7 @@
             line-height: 1.6;
         }
 
-        /* ===== Cabecera con botón de idioma ===== */
+        /* ===== Cabecera con Logo y Botón de idioma ===== */
         .site-header {
             background-color: var(--bg-body);
             border-bottom: 2px solid var(--brand-blue);
@@ -47,7 +47,17 @@
             font-size: 0.95rem;
         }
 
-        /* Toggle de idioma */
+        /* Logo en la esquina superior izquierda */
+        .site-logo {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            height: 45px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        /* Toggle de idioma en la esquina superior derecha */
         .lang-toggle {
             position: absolute;
             top: 1rem;
@@ -248,11 +258,25 @@
             margin-top: 0.5rem;
         }
 
+        /* ===== Ajustes para Móviles ===== */
+        @media (max-width: 768px) {
+            .site-header {
+                padding-top: 4rem; /* Baja el texto para dejar espacio al logo y al idioma */
+            }
+            .site-logo {
+                height: 35px;
+                top: 1rem;
+                left: 1rem;
+            }
+            .lang-toggle {
+                top: 1rem;
+                right: 1rem;
+            }
+        }
+
         @media (max-width: 600px) {
             .book-grid { grid-template-columns: 1fr; }
             .site-header h1 { font-size: 1.5rem; }
-            .site-header { padding-top: 3.2rem; } /* Espacio para el toggle en móvil */
-            .lang-toggle { top: 0.75rem; right: 0.75rem; }
             .lang-btn { padding: 0.25rem 0.55rem; font-size: 0.72rem; }
             .social-icons a { width: 34px; height: 34px; }
             .social-icons img, .social-icons svg { width: 17px; height: 17px; }
@@ -262,6 +286,9 @@
 <body>
 
     <header class="site-header">
+        <!-- Logo ipv4y6 -->
+        <img src="./logo.png" alt="ipv4y6.com Logo" class="site-logo">
+
         <!-- Botón de cambio de idioma -->
         <div class="lang-toggle" role="group" aria-label="Language selector">
             <button type="button" class="lang-btn" data-lang="es" onclick="setLang('es')">ES</button>
@@ -488,17 +515,14 @@
                 document.documentElement.lang = lang;
                 document.title = TITLES[lang];
 
-                // Textos visibles
                 document.querySelectorAll('[data-' + lang + ']').forEach(function (el) {
                     el.textContent = el.getAttribute('data-' + lang);
                 });
 
-                // Atributos aria-label traducidos
                 document.querySelectorAll('[data-aria-' + lang + ']').forEach(function (el) {
                     el.setAttribute('aria-label', el.getAttribute('data-aria-' + lang));
                 });
 
-                // Estado del toggle
                 document.querySelectorAll('.lang-btn').forEach(function (btn) {
                     btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
                 });
@@ -506,7 +530,6 @@
                 try { localStorage.setItem('ipv4y6-lang', lang); } catch (e) {}
             };
 
-            // Idioma inicial: preferencia guardada > idioma del navegador > español
             var stored = null;
             try { stored = localStorage.getItem('ipv4y6-lang'); } catch (e) {}
             var browserLang = (navigator.language || 'es').slice(0, 2).toLowerCase();
