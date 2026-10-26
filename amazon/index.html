@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biblioteca de Redes | ipv4y6.com</title>
+    <title>Redes ipv4y6.com</title>
     <style>
         :root {
             --brand-blue: #007185;
@@ -29,7 +29,6 @@
             line-height: 1.6;
         }
 
-        /* ===== Cabecera con Logo y Botón de idioma ===== */
         .site-header {
             background-color: var(--bg-body);
             border-bottom: 2px solid var(--brand-blue);
@@ -47,7 +46,6 @@
             font-size: 0.95rem;
         }
 
-        /* Logo en la esquina superior izquierda */
         .site-logo {
             position: absolute;
             top: 1rem;
@@ -57,7 +55,6 @@
             object-fit: contain;
         }
 
-        /* Toggle de idioma en la esquina superior derecha */
         .lang-toggle {
             position: absolute;
             top: 1rem;
@@ -91,7 +88,6 @@
             color: var(--brand-blue);
         }
 
-        /* ===== Banda especial de redes sociales (compacta) ===== */
         .social-band {
             background-color: #F0F7F8;
             border-bottom: 1px solid var(--border-color);
@@ -129,8 +125,7 @@
             transform: translateY(-2px);
             box-shadow: 0 3px 8px rgba(0,0,0,0.2);
         }
-        .social-icons img,
-        .social-icons svg {
+        .social-icons img, .social-icons svg {
             width: 18px;
             height: 18px;
             display: block;
@@ -143,10 +138,58 @@
             background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
         }
 
+        .tabs-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1.5rem auto;
+            max-width: 600px;
+            padding: 0 1rem;
+        }
+        .tab-btn {
+            flex: 1;
+            padding: 0.8rem 1rem;
+            background: #fff;
+            border: 2px solid var(--brand-blue);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--brand-blue);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+        .tab-btn:hover { background: #F0F7F8; }
+        .tab-btn.active {
+            background: var(--brand-blue);
+            color: white;
+            box-shadow: 0 4px 10px rgba(0, 113, 133, 0.3);
+        }
+
+        .notice {
+            background-color: #FFF8E7;
+            border-left: 4px solid var(--amazon-orange);
+            padding: 0.75rem 1rem;
+            margin: 2rem auto 1rem;
+            max-width: 900px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            display: none;
+        }
+        .notice a { color: var(--brand-blue); word-break: break-all; }
+
         .container {
             max-width: 1100px;
             margin: 0 auto;
             padding: 0 1rem 3rem;
+        }
+
+        .content-section { display: none; animation: fadeIn 0.4s ease; }
+        .content-section.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .section-title {
@@ -212,12 +255,8 @@
             transition: background-color 0.2s ease;
             border: 1px solid #E68A00;
         }
-        .btn-amazon:hover {
-            background-color: var(--amazon-orange-hover);
-            color: #111;
-        }
+        .btn-amazon:hover { background-color: var(--amazon-orange-hover); color: #111; }
 
-        /* ===== Pie de página ===== */
         .site-footer {
             background-color: var(--bg-section);
             padding: 2rem 1rem;
@@ -226,18 +265,11 @@
             color: var(--text-muted);
             margin-top: 3rem;
         }
-        .site-footer a {
-            color: var(--brand-blue);
-            text-decoration: none;
-        }
+        .site-footer a { color: var(--brand-blue); text-decoration: none; }
         .site-footer a:hover { text-decoration: underline; }
 
         .footer-contacts { margin-bottom: 1.25rem; }
-        .footer-contacts h3 {
-            font-size: 0.95rem;
-            color: var(--brand-blue);
-            margin-bottom: 0.5rem;
-        }
+        .footer-contacts h3 { font-size: 0.95rem; color: var(--brand-blue); margin-bottom: 0.5rem; }
         .footer-contacts p { margin: 0.15rem 0; }
         .footer-contacts a { font-weight: 600; }
 
@@ -252,26 +284,14 @@
         .footer-nav .separator { color: var(--border-color); }
         .footer-nav a { font-weight: 600; }
 
-        .footer-note {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-top: 0.5rem;
-        }
+        .footer-note { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.5rem; }
 
-        /* ===== Ajustes para Móviles ===== */
         @media (max-width: 768px) {
-            .site-header {
-                padding-top: 4rem; /* Baja el texto para dejar espacio al logo y al idioma */
-            }
-            .site-logo {
-                height: 35px;
-                top: 1rem;
-                left: 1rem;
-            }
-            .lang-toggle {
-                top: 1rem;
-                right: 1rem;
-            }
+            .site-header { padding-top: 4rem; }
+            .site-logo { height: 35px; top: 1rem; left: 1rem; }
+            .lang-toggle { top: 1rem; right: 1rem; }
+            .tabs-container { flex-direction: column; gap: 0.5rem; }
+            .tab-btn { font-size: 0.95rem; padding: 0.6rem; }
         }
 
         @media (max-width: 600px) {
@@ -286,45 +306,32 @@
 <body>
 
     <header class="site-header">
-        <!-- Logo ipv4y6 -->
         <img src="./logo.png" alt="ipv4y6.com Logo" class="site-logo">
-
-        <!-- Botón de cambio de idioma -->
         <div class="lang-toggle" role="group" aria-label="Language selector">
             <button type="button" class="lang-btn" data-lang="es" onclick="setLang('es')">ES</button>
             <button type="button" class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
         </div>
-
-        <h1 data-es="Biblioteca de Redes ipv4y6.com" data-en="Network Library ipv4y6.com">Biblioteca de Redes ipv4y6.com</h1>
-        <p data-es="Los libros mejor valorados para dominar las redes, desde los fundamentos hasta la automatización."
-           data-en="The best-rated books to master networking, from fundamentals to automation.">
-            Los libros mejor valorados para dominar las redes, desde los fundamentos hasta la automatización.
+        <h1 id="main-title" data-es="Biblioteca de Libros ipv4y6.com" data-en="Book Library ipv4y6.com">Biblioteca de Libros ipv4y6.com</h1>
+        <p data-es="Los mejores recursos para dominar las redes, desde los fundamentos hasta el hardware." 
+           data-en="The best resources to master networking, from fundamentals to hardware.">
+            Los mejores recursos para dominar las redes, desde los fundamentos hasta el hardware.
         </p>
     </header>
 
-    <!-- ===== Redes sociales (banda compacta) ===== -->
     <section class="social-band">
         <h2 data-es="Conecta con ipv4y6.com" data-en="Connect with ipv4y6.com">Conecta con ipv4y6.com</h2>
         <p data-es="Síguenos para más contenido sobre REDES" data-en="Follow us for more content about NETWORKS">Síguenos para más contenido sobre REDES</p>
         <div class="social-icons">
-            <a href="https://www.youtube.com/@ipv4y6" class="social-youtube" target="_blank" rel="noopener noreferrer"
-               aria-label="Canal de YouTube de ipv4y6"
-               data-aria-es="Canal de YouTube de ipv4y6" data-aria-en="ipv4y6 YouTube channel">
+            <a href="https://www.youtube.com/@ipv4y6" class="social-youtube" target="_blank" rel="noopener noreferrer" aria-label="YouTube de ipv4y6">
                 <img src="https://cdn.simpleicons.org/youtube/FFFFFF" alt="" loading="lazy">
             </a>
-            <a href="https://www.instagram.com/ipv4y6/" class="social-instagram" target="_blank" rel="noopener noreferrer"
-               aria-label="Instagram de ipv4y6"
-               data-aria-es="Instagram de ipv4y6" data-aria-en="ipv4y6 Instagram">
+            <a href="https://www.instagram.com/ipv4y6/" class="social-instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram de ipv4y6">
                 <img src="https://cdn.simpleicons.org/instagram/FFFFFF" alt="" loading="lazy">
             </a>
-            <a href="https://www.facebook.com/ipv4y6" class="social-facebook" target="_blank" rel="noopener noreferrer"
-               aria-label="Facebook de ipv4y6"
-               data-aria-es="Facebook de ipv4y6" data-aria-en="ipv4y6 Facebook">
+            <a href="https://www.facebook.com/ipv4y6" class="social-facebook" target="_blank" rel="noopener noreferrer" aria-label="Facebook de ipv4y6">
                 <img src="https://cdn.simpleicons.org/facebook/FFFFFF" alt="" loading="lazy">
             </a>
-            <a href="https://www.linkedin.com/in/ipv4y6" class="social-linkedin" target="_blank" rel="noopener noreferrer"
-               aria-label="LinkedIn de ipv4y6"
-               data-aria-es="LinkedIn de ipv4y6" data-aria-en="ipv4y6 LinkedIn">
+            <a href="https://www.linkedin.com/in/ipv4y6" class="social-linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de ipv4y6">
                 <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                 </svg>
@@ -332,191 +339,247 @@
         </div>
     </section>
 
+    <div class="tabs-container">
+        <button type="button" class="tab-btn active" id="btn-books" onclick="switchTab('books')" 
+                data-es="📚 Biblioteca de Libros" data-en="📚 Book Library">📚 Biblioteca de Libros</button>
+        <button type="button" class="tab-btn" id="btn-equipos" onclick="switchTab('equipos')" 
+                data-es="📡 Equipos de Redes" data-en="📡 Network Equipment">📡 Equipos de Redes</button>
+    </div>
+
     <main class="container">
 
-        <!-- Fundamentos Universitarios -->
-        <h2 class="section-title" id="fundamentos" data-es="📚 Fundamentos Universitarios" data-en="📚 University Fundamentals">📚 Fundamentos Universitarios</h2>
-        <div class="book-grid">
+        <!-- SECCIÓN 1: LIBROS -->
+        <div id="content-books" class="content-section active">
+            <h2 class="section-title" data-es="📚 Fundamentos Universitarios" data-en="📚 University Fundamentals">📚 Fundamentos Universitarios</h2>
+            <div class="book-grid">
+                <article class="book-card">
+                    <img src="https://m.media-amazon.com/images/P/1292405465.01._SCLZZZZZZZ_.jpg" alt="Computer Networking: A Top-Down Approach" loading="lazy">
+                    <h3>Computer Networking: A Top-Down Approach</h3>
+                    <p class="author">James F. Kurose &amp; Keith W. Ross</p>
+                    <p class="reason" data-es="El texto de referencia indiscutible. Su enfoque descendente lo hace ideal para principiantes." data-en="The undisputed reference text. Its top-down approach makes it ideal for beginners.">El texto de referencia indiscutible. Su enfoque descendente lo hace ideal para principiantes.</p>
+                    <a class="btn-amazon" href="https://www.amazon.com/dp/1292405465" target="_blank" rel="noopener noreferrer" data-es="Ver en Amazon" data-en="View on Amazon">Ver en Amazon</a>
+                </article>
+                <article class="book-card">
+                    <img src="https://m.media-amazon.com/images/P/1292374063.01._SCLZZZZZZZ_.jpg" alt="Computer Networks (Tanenbaum)" loading="lazy">
+                    <h3>Computer Networks (Global Edition)</h3>
+                    <p class="author">Andrew S. Tanenbaum et al.</p>
+                    <p class="reason" data-es="Un clásico que explica cómo funcionan las redes &quot;desde dentro hacia fuera&quot;. La 6ª edición global es la más actual." data-en="A classic that explains how networks work 'from the inside out'. The 6th global edition is the most current.">Un clásico que explica cómo funcionan las redes “desde dentro hacia fuera”. La 6ª edición global es la más actual.</p>
+                    <a class="btn-amazon" href="https://www.amazon.com/dp/1292374063" target="_blank" rel="noopener noreferrer" data-es="Ver en Amazon" data-en="View on Amazon">Ver en Amazon</a>
+                </article>
+                <article class="book-card">
+                    <img src="https://m.media-amazon.com/images/P/0128182008.01._SCLZZZZZZZ_.jpg" alt="Computer Networks: A Systems Approach" loading="lazy">
+                    <h3>Computer Networks: A Systems Approach</h3>
+                    <p class="author">Larry L. Peterson &amp; Bruce S. Davie</p>
+                    <p class="reason" data-es="Recomendado en universidades como Cambridge y MIT. Se centra en los principios de diseño de sistemas reales." data-en="Recommended at universities like Cambridge and MIT. Focuses on the design principles of real systems.">Recomendado en universidades como Cambridge y MIT. Se centra en los principios de diseño de sistemas reales.</p>
+                    <a class="btn-amazon" href="https://www.amazon.com/dp/0128182008" target="_blank" rel="noopener noreferrer" data-es="Ver en Amazon" data-en="View on Amazon">Ver en Amazon</a>
+                </article>
+            </div>
 
-            <article class="book-card">
-                <img src="https://m.media-amazon.com/images/P/1292405465.01._SCLZZZZZZZ_.jpg"
-                     alt="Computer Networking: A Top-Down Approach" loading="lazy">
-                <h3>Computer Networking: A Top-Down Approach</h3>
-                <p class="author">James F. Kurose &amp; Keith W. Ross</p>
-                <p class="reason"
-                   data-es="El texto de referencia indiscutible. Su enfoque descendente lo hace ideal para principiantes."
-                   data-en="The undisputed reference text. Its top-down approach makes it ideal for beginners.">
-                    El texto de referencia indiscutible. Su enfoque descendente lo hace ideal para principiantes.
-                </p>
-                <a class="btn-amazon" href="https://www.amazon.com/dp/1292405465" target="_blank" rel="noopener noreferrer"
-                   data-es="Ver en Amazon" data-en="View on Amazon">Ver en Amazon</a>
-            </article>
+            <h2 class="section-title" data-es="🎯 Guías de Certificación" data-en="🎯 Certification Guides">🎯 Guías de Certificación</h2>
+            <div class="book-grid">
+                <article class="book-card">
+                    <img src="https://m.media-amazon.com/images/P/1264269056.01._SCLZZZZZZZ_.jpg" alt="CompTIA Network+ All-in-One Exam Guide" loading="lazy">
+                    <h3>CompTIA Network+ All-in-One Exam Guide</h3>
+                    <p class="author">Mike Meyers</p>
+                    <p class="reason" data-es="La guía más vendida para la certificación Network+. Cubre el 100% de los objetivos del examen." data-en="The best-selling guide for the Network+ certification. Covers 100% of the exam objectives.">La guía más vendida para la certificación Network+. Cubre el 100% de los objetivos del examen.</p>
+                    <a class="btn-amazon" href="https://www.amazon.com/dp/1264269056" target="_blank" rel="noopener noreferrer" data-es="Ver en Amazon" data-en="View on Amazon">Ver en Amazon</a>
+                </article>
+                <article class="book-card">
+                    <img src="https://m.media-amazon.com/images/P/8499649300.01._SCLZZZZZZZ_.jpg" alt="Redes Cisco: Guía de estudio para la certificación CCNA" loading="lazy">
+                    <h3>Redes Cisco: Guía de estudio para la certificación CCNA</h3>
+                    <p class="author">Ernesto Ariganello</p>
+                    <p class="reason" data-es="La guía en español más popular para CCNA. Actualizada para las versiones más recientes del examen." data-en="The most popular Spanish guide for CCNA. Updated for the latest exam versions.">La guía en español más popular para CCNA. Actualizada para las versiones más recientes del examen.</p>
+                    <a class="btn-amazon" href="https://www.amazon.com/dp/8499649300" target="_blank" rel="noopener noreferrer" data-es="Ver en Amazon" data-en="View on Amazon">Ver en Amazon</a>
+                </article>
+                <article class="book-card">
+                    <img src="https://m.media-amazon.com/images/P/B09S8T937G.01._SCLZZZZZZZ_.jpg" alt="El Único Libro Sobre Redes que Necesitas" loading="lazy">
+                    <h3>El Único Libro Sobre Redes que Necesitas</h3>
+                    <p class="author">David Gonzalez</p>
+                    <p class="reason" data-es="Enfoque práctico para principiantes y para preparar el CCNA 200-301. Muy popular en el ámbito hispanohablante." data-en="A practical approach for beginners and for preparing for the CCNA 200-301. Very popular among Spanish speakers.">Enfoque práctico para principiantes y para preparar el CCNA 200-301. Muy popular en el ámbito hispanohablante.</p>
+                    <a class="btn-amazon" href="https://www.amazon.com/dp/B09S8T937G" target="_blank" rel="noopener noreferrer" data-es="Ver en Amazon" data-en="View on Amazon">Ver en Amazon</a>
+                </article>
+            </div>
 
-            <article class="book-card">
-                <img src="https://m.media-amazon.com/images/P/1292374063.01._SCLZZZZZZZ_.jpg"
-                     alt="Computer Networks (Tanenbaum)" loading="lazy">
-                <h3>Computer Networks (Global Edition)</h3>
-                <p class="author">Andrew S. Tanenbaum et al.</p>
-                <p class="reason"
-                   data-es="Un clásico que explica cómo funcionan las redes &quot;desde dentro hacia fuera&quot;. La 6ª edición global es la más actual."
-                   data-en="A classic that explains how networks work 'from the inside out'. The 6th global edition is the most current.">
-                    Un clásico que explica cómo funcionan las redes “desde dentro hacia fuera”. La 6ª edición global es la más actual.
-                </p>
-                <a class="btn-amazon" href="https://www.amazon.com/dp/1292374063" target="_blank" rel="noopener noreferrer"
-                   data-es="Ver en Amazon" data-en="View on Amazon">Ver en Amazon</a>
-            </article>
-
-            <article class="book-card">
-                <img src="https://m.media-amazon.com/images/P/0128182008.01._SCLZZZZZZZ_.jpg"
-                     alt="Computer Networks: A Systems Approach" loading="lazy">
-                <h3>Computer Networks: A Systems Approach</h3>
-                <p class="author">Larry L. Peterson &amp; Bruce S. Davie</p>
-                <p class="reason"
-                   data-es="Recomendado en universidades como Cambridge y MIT. Se centra en los principios de diseño de sistemas reales."
-                   data-en="Recommended at universities like Cambridge and MIT. Focuses on the design principles of real systems.">
-                    Recomendado en universidades como Cambridge y MIT. Se centra en los principios de diseño de sistemas reales.
-                </p>
-                <a class="btn-amazon" href="https://www.amazon.com/dp/0128182008" target="_blank" rel="noopener noreferrer"
-                   data-es="Ver en Amazon" data-en="View on Amazon">Ver en Amazon</a>
-            </article>
-
+            <h2 class="section-title" data-es="🛠️ Para Profesionales" data-en="🛠️ For Professionals">🛠️ Para Profesionales</h2>
+            <div class="book-grid">
+                <article class="book-card">
+                    <img src="https://m.media-amazon.com/images/P/1449387861.01._SCLZZZZZZZ_.jpg" alt="Network Warrior" loading="lazy">
+                    <h3>Network Warrior</h3>
+                    <p class="author">Gary A. Donahue</p>
+                    <p class="reason" data-es="El libro &quot;post-CCNA&quot; por excelencia. Cubre cableado, switches, firewalls y diseño real." data-en="The quintessential 'post-CCNA' book. Covers cabling, switches, firewalls, and real-world design.">El libro “post-CCNA” por excelencia. Cubre cableado, switches, firewalls y diseño real.</p>
+                    <a class="btn-amazon" href="https://www.amazon.com/dp/1449387861" target="_blank" rel="noopener noreferrer" data-es="Ver en Amazon" data-en="View on Amazon">Ver en Amazon</a>
+                </article>
+                <article class="book-card">
+                    <img src="https://m.media-amazon.com/images/P/0321336313.01._SCLZZZZZZZ_.jpg" alt="TCP/IP Illustrated, Volume 1" loading="lazy">
+                    <h3>TCP/IP Illustrated, Volume 1</h3>
+                    <p class="author">W. Richard Stevens &amp; Kevin R. Fall</p>
+                    <p class="reason" data-es="El clásico indiscutible sobre TCP/IP. Sigue siendo la referencia mejor valorada para dominar los protocolos." data-en="The undisputed classic on TCP/IP. Still the highest-rated reference for mastering the protocols.">El clásico indiscutible sobre TCP/IP. Sigue siendo la referencia mejor valorada para dominar los protocolos.</p>
+                    <a class="btn-amazon" href="https://www.amazon.com/dp/0321336313" target="_blank" rel="noopener noreferrer" data-es="Ver en Amazon" data-en="View on Amazon">Ver en Amazon</a>
+                </article>
+                <article class="book-card">
+                    <img src="https://m.media-amazon.com/images/P/1491931256.01._SCLZZZZZZZ_.jpg" alt="Network Programmability and Automation" loading="lazy">
+                    <h3>Network Programmability and Automation</h3>
+                    <p class="author">Jason Edelman et al.</p>
+                    <p class="reason" data-es="La referencia moderna para dar el salto a las redes programables con Python, Linux, JSON y YAML." data-en="The modern reference for taking the leap into programmable networks with Python, Linux, JSON, and YAML.">La referencia moderna para dar el salto a las redes programables con Python, Linux, JSON y YAML.</p>
+                    <a class="btn-amazon" href="https://www.amazon.com/dp/1491931256" target="_blank" rel="noopener noreferrer" data-es="Ver en Amazon" data-en="View on Amazon">Ver en Amazon</a>
+                </article>
+            </div>
         </div>
 
-        <!-- Certificaciones -->
-        <h2 class="section-title" id="certificaciones" data-es="🎯 Guías de Certificación" data-en="🎯 Certification Guides">🎯 Guías de Certificación</h2>
-        <div class="book-grid">
+        <!-- SECCIÓN 2: EQUIPOS -->
+        <div id="content-equipos" class="content-section">
+            
+            <!-- Routers ADSL -->
+            <h2 class="section-title" data-es="📡 Routers ADSL" data-en="📡 ADSL Routers">📡 Routers ADSL</h2>
+            <div class="book-grid">
+                <!-- TD-W8960N: Imagen corregida con enlace directo -->
+                <article class="book-card">
+                    <img src="https://m.media-amazon.com/images/I/61g1z7k5fUL._AC_SL1500_.jpg" alt="TP-Link TD-W8960N" loading="lazy">
+                    <h3>TP-Link TD-W8960N</h3>
+                    <p class="author">TP-Link</p>
+                    <p class="reason" data-es="Router ADSL2+ inalámbrico N300. Una opción económica y muy popular para conexiones por cobre, incluido en el listado del MINCOM." data-en="Wireless N300 ADSL2+ router. A budget-friendly and very popular option for copper connections, included in the MINCOM list.">Router ADSL2+ inalámbrico N300. Una opción económica y muy popular para conexiones por cobre, incluido en el listado del MINCOM.</p>
+                    <a class="btn-amazon" href="https://www.amazon.com/dp/B004ULH2FQ" target="_blank" rel="noopener noreferrer" data-es="Ver en Amazon" data-en="View on Amazon">Ver en Amazon</a>
+                </article>
+                
+                <!-- Archer D7: Imagen corregida con enlace directo -->
+                <article class="book-card">
+                    <img src="https://m.media-amazon.com/images/I/41f5y3Xy7oL._AC_.jpg" alt="TP-Link Archer D7" loading="lazy">
+                    <h3>TP-Link Archer D7</h3>
+                    <p class="author">TP-Link</p>
+                    <p class="reason" data-es="Módem router ADSL2+ de doble banda AC1750. Ideal si buscas mayor velocidad y cobertura para varios dispositivos." data-en="Dual-band AC1750 ADSL2+ modem router. Ideal if you're looking for higher speed and coverage for multiple devices.">Módem router ADSL2+ de doble banda AC1750. Ideal si buscas mayor velocidad y cobertura para varios dispositivos.</p>
+                    <a class="btn-amazon" href="https://www.amazon.com/dp/B01EE4CBLS" target="_blank" rel="noopener noreferrer" data-es="Ver en Amazon" data-en="View on Amazon">Ver en Amazon</a>
+                </article>
 
-            <article class="book-card">
-                <img src="https://m.media-amazon.com/images/P/1264269056.01._SCLZZZZZZZ_.jpg"
-                     alt="CompTIA Network+ All-in-One Exam Guide" loading="lazy">
-                <h3>CompTIA Network+ All-in-One Exam Guide</h3>
-                <p class="author">Mike Meyers</p>
-                <p class="reason"
-                   data-es="La guía más vendida para la certificación Network+. Cubre el 100% de los objetivos del examen."
-                   data-en="The best-selling guide for the Network+ certification. Covers 100% of the exam objectives.">
-                    La guía más vendida para la certificación Network+. Cubre el 100% de los objetivos del examen.
-                </p>
-                <a class="btn-amazon" href="https://www.amazon.com/dp/1264269056" target="_blank" rel="noopener noreferrer"
-                   data-es="Ver en Amazon" data-en="View on Amazon">Ver en Amazon</a>
-            </article>
+                <article class="book-card">
+                    <img src="https://m.media-amazon.com/images/P/B01LFGTEI6.01._SCLZZZZZZZ_.jpg" alt="TP-Link Archer VR400" loading="lazy">
+                    <h3>TP-Link Archer VR400</h3>
+                    <p class="author">TP-Link</p>
+                    <p class="reason" data-es="Considerado el mejor router ADSL en relación calidad-precio. Wi-Fi AC1200 dual-banda y soporte VDSL/ADSL para un rendimiento estable." data-en="Considered the best value-for-money ADSL router. Dual-band AC1200 Wi-Fi and VDSL/ADSL support for stable performance.">Considerado el mejor router ADSL en relación calidad-precio. Wi-Fi AC1200 dual-banda y soporte VDSL/ADSL para un rendimiento estable.</p>
+                    <a class="btn-amazon" href="https://www.amazon.com/dp/B01LFGTEI6" target="_blank" rel="noopener noreferrer" data-es="Ver en Amazon" data-en="View on Amazon">Ver en Amazon</a>
+                </article>
+                <article class="book-card">
+                    <img src="https://m.media-amazon.com/images/P/B01IESBHTM.01._SCLZZZZZZZ_.jpg" alt="ASUS DSL-N16" loading="lazy">
+                    <h3>ASUS DSL-N16</h3>
+                    <p class="author">ASUS</p>
+                    <p class="reason" data-es="Un modelo económico y muy fiable de ASUS. Wi-Fi N300 ideal para conexiones ADSL estándar y uso doméstico básico." data-en="A budget-friendly and highly reliable ASUS model. N300 Wi-Fi ideal for standard ADSL connections and basic home use.">Un modelo económico y muy fiable de ASUS. Wi-Fi N300 ideal para conexiones ADSL estándar y uso doméstico básico.</p>
+                    <a class="btn-amazon" href="https://www.amazon.com/dp/B01IESBHTM" target="_blank" rel="noopener noreferrer" data-es="Ver en Amazon" data-en="View on Amazon">Ver en Amazon</a>
+                </article>
+                <article class="book-card">
+                    <img src="https://m.media-amazon.com/images/P/B0051SHXPQ.01._SCLZZZZZZZ_.jpg" alt="Zyxel P660HN-51" loading="lazy">
+                    <h3>Zyxel P660HN-51</h3>
+                    <p class="author">Zyxel</p>
+                    <p class="reason" data-es="Gateway ADSL2+ de grado profesional. Ofrece un control profundo y configuraciones avanzadas para usuarios que buscan estabilidad." data-en="Professional-grade ADSL2+ gateway. Offers deep control and advanced configurations for users seeking stability.">Gateway ADSL2+ de grado profesional. Ofrece un control profundo y configuraciones avanzadas para usuarios que buscan estabilidad.</p>
+                    <a class="btn-amazon" href="https://www.amazon.com/dp/B0051SHXPQ" target="_blank" rel="noopener noreferrer" data-es="Ver en Amazon" data-en="View on Amazon">Ver en Amazon</a>
+                </article>
+            </div>
 
-            <article class="book-card">
-                <img src="https://m.media-amazon.com/images/P/8499649300.01._SCLZZZZZZZ_.jpg"
-                     alt="Redes Cisco: Guía de estudio para la certificación CCNA" loading="lazy">
-                <h3>Redes Cisco: Guía de estudio para la certificación CCNA</h3>
-                <p class="author">Ernesto Ariganello</p>
-                <p class="reason"
-                   data-es="La guía en español más popular para CCNA. Actualizada para las versiones más recientes del examen."
-                   data-en="The most popular Spanish guide for CCNA. Updated for the latest exam versions.">
-                    La guía en español más popular para CCNA. Actualizada para las versiones más recientes del examen.
-                </p>
-                <a class="btn-amazon" href="https://www.amazon.com/dp/8499649300" target="_blank" rel="noopener noreferrer"
-                   data-es="Ver en Amazon" data-en="View on Amazon">Ver en Amazon</a>
-            </article>
+            <!-- Routers Inalámbricos -->
+            <h2 class="section-title" data-es="📶 Routers Inalámbricos" data-en="📶 Wireless Routers">📶 Routers Inalámbricos</h2>
+            <div class="book-grid">
+                <article class="book-card">
+                    <img src="https://m.media-amazon.com/images/P/B07RWD9ZTW.01._SCLZZZZZZZ_.jpg" alt="TP-Link Archer C6" loading="lazy">
+                    <h3>TP-Link Archer C6</h3>
+                    <p class="author">TP-Link</p>
+                    <p class="reason" data-es="Router Gigabit de doble banda AC1200. Excelente relación calidad-precio y uno de los modelos más recomendados para el hogar." data-en="Dual-band AC1200 Gigabit router. Excellent value for money and one of the most recommended models for home use.">Router Gigabit de doble banda AC1200. Excelente relación calidad-precio y uno de los modelos más recomendados para el hogar.</p>
+                    <a class="btn-amazon" href="https://www.amazon.com/dp/B07RWD9ZTW" target="_blank" rel="noopener noreferrer" data-es="Ver en Amazon" data-en="View on Amazon">Ver en Amazon</a>
+                </article>
+                <article class="book-card">
+                    <img src="https://m.media-amazon.com/images/P/B07ZSDR49S.01._SCLZZZZZZZ_.jpg" alt="TP-Link Archer AX10" loading="lazy">
+                    <h3>TP-Link Archer AX10</h3>
+                    <p class="author">TP-Link</p>
+                    <p class="reason" data-es="Router WiFi 6 (802.11ax) de doble banda. Tecnología de última generación para redes más eficientes y menor latencia." data-en="Dual-band WiFi 6 (802.11ax) router. Latest-generation technology for more efficient networks and lower latency.">Router WiFi 6 (802.11ax) de doble banda. Tecnología de última generación para redes más eficientes y menor latencia.</p>
+                    <a class="btn-amazon" href="https://www.amazon.com/dp/B07ZSDR49S" target="_blank" rel="noopener noreferrer" data-es="Ver en Amazon" data-en="View on Amazon">Ver en Amazon</a>
+                </article>
+            </div>
 
-            <article class="book-card">
-                <img src="https://m.media-amazon.com/images/P/B09S8T937G.01._SCLZZZZZZZ_.jpg"
-                     alt="El Único Libro Sobre Redes que Necesitas" loading="lazy">
-                <h3>El Único Libro Sobre Redes que Necesitas</h3>
-                <p class="author">David Gonzalez</p>
-                <p class="reason"
-                   data-es="Enfoque práctico para principiantes y para preparar el CCNA 200-301. Muy popular en el ámbito hispanohablante."
-                   data-en="A practical approach for beginners and for preparing for the CCNA 200-301. Very popular among Spanish speakers.">
-                    Enfoque práctico para principiantes y para preparar el CCNA 200-301. Muy popular en el ámbito hispanohablante.
-                </p>
-                <a class="btn-amazon" href="https://www.amazon.com/dp/B09S8T937G" target="_blank" rel="noopener noreferrer"
-                   data-es="Ver en Amazon" data-en="View on Amazon">Ver en Amazon</a>
-            </article>
+            <!-- Repetidores WiFi -->
+            <h2 class="section-title" data-es="🔄 Repetidores WiFi" data-en="🔄 WiFi Extenders">🔄 Repetidores WiFi</h2>
+            <div class="book-grid">
+                <article class="book-card">
+                    <img src="https://m.media-amazon.com/images/P/B00Q6CC2J8.01._SCLZZZZZZZ_.jpg" alt="TP-Link TL-WA850RE" loading="lazy">
+                    <h3>TP-Link TL-WA850RE</h3>
+                    <p class="author">TP-Link</p>
+                    <p class="reason" data-es="Repetidor WiFi N300 con puerto Ethernet. Solución sencilla para ampliar la cobertura en habitaciones con poca señal." data-en="N300 WiFi extender with Ethernet port. A simple solution to expand coverage in rooms with weak signal.">Repetidor WiFi N300 con puerto Ethernet. Solución sencilla para ampliar la cobertura en habitaciones con poca señal.</p>
+                    <a class="btn-amazon" href="https://www.amazon.com/dp/B00Q6CC2J8" target="_blank" rel="noopener noreferrer" data-es="Ver en Amazon" data-en="View on Amazon">Ver en Amazon</a>
+                </article>
+            </div>
 
-        </div>
+            <!-- Antenas NanoStation -->
+            <h2 class="section-title" data-es="📡 Antenas NanoStation" data-en="📡 NanoStation Antennas">📡 Antenas NanoStation</h2>
+            <div class="book-grid">
+                <!-- NanoStation: Imagen corregida con enlace directo -->
+                <article class="book-card">
+                    <img src="https://m.media-amazon.com/images/I/51N1k92w1yL._AC_SL1000_.jpg" alt="Ubiquiti NanoStation Loco M2" loading="lazy">
+                    <h3>Ubiquiti NanoStation Loco M2</h3>
+                    <p class="author">Ubiquiti</p>
+                    <p class="reason" data-es="CPE inalámbrico para exteriores de 2.4 GHz. Ideal para enlaces punto a punto o para recibir señal a larga distancia." data-en="2.4 GHz outdoor wireless CPE. Ideal for point-to-point links or for receiving signals over long distances.">CPE inalámbrico para exteriores de 2.4 GHz. Ideal para enlaces punto a punto o para recibir señal a larga distancia.</p>
+                    <a class="btn-amazon" href="https://www.amazon.com/dp/B004E4Q4W8" target="_blank" rel="noopener noreferrer" data-es="Ver en Amazon" data-en="View on Amazon">Ver en Amazon</a>
+                </article>
+            </div>
 
-        <!-- Profesionales -->
-        <h2 class="section-title" id="profesionales" data-es="🛠️ Para Profesionales" data-en="🛠️ For Professionals">🛠️ Para Profesionales</h2>
-        <div class="book-grid">
+            <!-- Switches -->
+            <h2 class="section-title" data-es="🔀 Switches" data-en="🔀 Switches">🔀 Switches</h2>
+            <div class="book-grid">
+                <!-- Switch: Imagen corregida con enlace directo -->
+                <article class="book-card">
+                    <img src="https://m.media-amazon.com/images/I/41X6G8y4SXL._AC_.jpg" alt="TP-Link TL-SG108" loading="lazy">
+                    <h3>TP-Link TL-SG108</h3>
+                    <p class="author">TP-Link</p>
+                    <p class="reason" data-es="Switch Gigabit de 8 puertos no administrado. Perfecto para expandir la red cableada de tu hogar de forma sencilla y silenciosa." data-en="8-port unmanaged Gigabit switch. Perfect for expanding your home's wired network simply and silently.">Switch Gigabit de 8 puertos no administrado. Perfecto para expandir la red cableada de tu hogar de forma sencilla y silenciosa.</p>
+                    <a class="btn-amazon" href="https://www.amazon.com/dp/B00A121WN2" target="_blank" rel="noopener noreferrer" data-es="Ver en Amazon" data-en="View on Amazon">Ver en Amazon</a>
+                </article>
+            </div>
 
-            <article class="book-card">
-                <img src="https://m.media-amazon.com/images/P/1449387861.01._SCLZZZZZZZ_.jpg"
-                     alt="Network Warrior" loading="lazy">
-                <h3>Network Warrior</h3>
-                <p class="author">Gary A. Donahue</p>
-                <p class="reason"
-                   data-es="El libro &quot;post-CCNA&quot; por excelencia. Cubre cableado, switches, firewalls y diseño real."
-                   data-en="The quintessential 'post-CCNA' book. Covers cabling, switches, firewalls, and real-world design.">
-                    El libro “post-CCNA” por excelencia. Cubre cableado, switches, firewalls y diseño real.
-                </p>
-                <a class="btn-amazon" href="https://www.amazon.com/dp/1449387861" target="_blank" rel="noopener noreferrer"
-                   data-es="Ver en Amazon" data-en="View on Amazon">Ver en Amazon</a>
-            </article>
-
-            <article class="book-card">
-                <img src="https://m.media-amazon.com/images/P/0321336313.01._SCLZZZZZZZ_.jpg"
-                     alt="TCP/IP Illustrated, Volume 1" loading="lazy">
-                <h3>TCP/IP Illustrated, Volume 1</h3>
-                <p class="author">W. Richard Stevens &amp; Kevin R. Fall</p>
-                <p class="reason"
-                   data-es="El clásico indiscutible sobre TCP/IP. Sigue siendo la referencia mejor valorada para dominar los protocolos."
-                   data-en="The undisputed classic on TCP/IP. Still the highest-rated reference for mastering the protocols.">
-                    El clásico indiscutible sobre TCP/IP. Sigue siendo la referencia mejor valorada para dominar los protocolos.
-                </p>
-                <a class="btn-amazon" href="https://www.amazon.com/dp/0321336313" target="_blank" rel="noopener noreferrer"
-                   data-es="Ver en Amazon" data-en="View on Amazon">Ver en Amazon</a>
-            </article>
-
-            <article class="book-card">
-                <img src="https://m.media-amazon.com/images/P/1491931256.01._SCLZZZZZZZ_.jpg"
-                     alt="Network Programmability and Automation" loading="lazy">
-                <h3>Network Programmability and Automation</h3>
-                <p class="author">Jason Edelman et al.</p>
-                <p class="reason"
-                   data-es="La referencia moderna para dar el salto a las redes programables con Python, Linux, JSON y YAML."
-                   data-en="The modern reference for taking the leap into programmable networks with Python, Linux, JSON, and YAML.">
-                    La referencia moderna para dar el salto a las redes programables con Python, Linux, JSON y YAML.
-                </p>
-                <a class="btn-amazon" href="https://www.amazon.com/dp/1491931256" target="_blank" rel="noopener noreferrer"
-                   data-es="Ver en Amazon" data-en="View on Amazon">Ver en Amazon</a>
-            </article>
+            <!-- Aviso MINCOM al final -->
+            <div class="notice" id="mincom-notice" 
+                 data-es="Antes de comprar, verifica que el modelo exacto aparezca en el listado oficial del MINCOM y la URL: <a href='https://www.mincom.gob.cu/es/marcas-permitidas' target='_blank' rel='noopener noreferrer'>https://www.mincom.gob.cu/es/marcas-permitidas</a>"
+                 data-en="Before buying, verify that the exact model appears in the official MINCOM list and the URL: <a href='https://www.mincom.gob.cu/es/marcas-permitidas' target='_blank' rel='noopener noreferrer'>https://www.mincom.gob.cu/es/marcas-permitidas</a>">
+            </div>
 
         </div>
 
     </main>
 
     <footer class="site-footer">
-
         <div class="footer-contacts">
             <h3 data-es="Contacto" data-en="Contact">Contacto</h3>
             <p><a href="mailto:info@ipv4y6.com">info@ipv4y6.com</a></p>
             <p><a href="mailto:ipv4y6@gmail.com">ipv4y6@gmail.com</a></p>
         </div>
-
         <div class="footer-nav">
             <a href="https://www.ipv4y6.com" data-es="Volver a ipv4y6.com" data-en="Back to ipv4y6.com">Volver a ipv4y6.com</a>
             <span class="separator">|</span>
             <a href="https://www.ipv4y6.com/#colaborar" data-es="Colaborar" data-en="Collaborate">Colaborar</a>
         </div>
-
+        <!-- Texto modificado aquí: "son" -> "serán" -->
         <p class="footer-note"
-           data-es="Los enlaces de esta página son de afiliado de Amazon en el futuro. Actualmente no generan comisiones."
+           data-es="Los enlaces de esta página serán de afiliado de Amazon en el futuro. Actualmente no generan comisiones."
            data-en="The links on this page will be Amazon affiliate links in the future. Currently they do not generate commissions.">
-            Los enlaces de esta página son de afiliado de Amazon en el futuro. Actualmente no generan comisiones.
+            Los enlaces de esta página serán de afiliado de Amazon en el futuro. Actualmente no generan comisiones.
         </p>
     </footer>
 
-    <!-- ===== Lógica de cambio de idioma ===== -->
     <script>
         (function () {
             var TITLES = {
-                es: 'Biblioteca de Redes | ipv4y6.com',
-                en: 'Network Library | ipv4y6.com'
+                books: { es: 'Biblioteca de Libros | ipv4y6.com', en: 'Book Library | ipv4y6.com' },
+                equipos: { es: 'Equipos de Redes | ipv4y6.com', en: 'Network Equipment | ipv4y6.com' }
             };
+
+            var currentLang = 'es';
+            var currentTab = 'books';
 
             window.setLang = function (lang) {
                 if (lang !== 'es' && lang !== 'en') return;
-
+                currentLang = lang;
                 document.documentElement.lang = lang;
-                document.title = TITLES[lang];
-
+                
                 document.querySelectorAll('[data-' + lang + ']').forEach(function (el) {
-                    el.textContent = el.getAttribute('data-' + lang);
+                    if (el.id === 'mincom-notice' || el.classList.contains('notice')) {
+                        el.innerHTML = el.getAttribute('data-' + lang);
+                    } else {
+                        el.textContent = el.getAttribute('data-' + lang);
+                    }
                 });
 
                 document.querySelectorAll('[data-aria-' + lang + ']').forEach(function (el) {
@@ -527,14 +590,49 @@
                     btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
                 });
 
+                updateDocumentTitle();
                 try { localStorage.setItem('ipv4y6-lang', lang); } catch (e) {}
             };
 
-            var stored = null;
-            try { stored = localStorage.getItem('ipv4y6-lang'); } catch (e) {}
+            window.switchTab = function (tab) {
+                currentTab = tab;
+                
+                document.querySelectorAll('.content-section').forEach(el => el.classList.remove('active'));
+                document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+
+                document.getElementById('content-' + tab).classList.add('active');
+                document.getElementById('btn-' + tab).classList.add('active');
+
+                var notice = document.getElementById('mincom-notice');
+                var mainTitle = document.getElementById('main-title');
+
+                if (tab === 'equipos') {
+                    notice.style.display = 'block';
+                    mainTitle.setAttribute('data-es', 'Equipos de Redes ipv4y6.com');
+                    mainTitle.setAttribute('data-en', 'Network Equipment ipv4y6.com');
+                } else {
+                    notice.style.display = 'none';
+                    mainTitle.setAttribute('data-es', 'Biblioteca de Libros ipv4y6.com');
+                    mainTitle.setAttribute('data-en', 'Book Library ipv4y6.com');
+                }
+
+                mainTitle.textContent = mainTitle.getAttribute('data-' + currentLang);
+                updateDocumentTitle();
+
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            };
+
+            function updateDocumentTitle() {
+                document.title = TITLES[currentTab][currentLang];
+            }
+
+            var storedLang = null;
+            try { storedLang = localStorage.getItem('ipv4y6-lang'); } catch (e) {}
             var browserLang = (navigator.language || 'es').slice(0, 2).toLowerCase();
-            var initial = stored || (browserLang === 'en' ? 'en' : 'es');
-            window.setLang(initial);
+            var initialLang = storedLang || (browserLang === 'en' ? 'en' : 'es');
+            
+            window.setLang(initialLang);
+            window.switchTab('books');
         })();
     </script>
 
