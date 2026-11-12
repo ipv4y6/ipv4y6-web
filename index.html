@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+Ôªø<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ipv4y6 | Centro de Recursos de Redes</title>
-    <meta name="description" content="Enlaces a documentaciÛn de fabricantes, simuladores de redes, herramientas y servicios. Tu centro de recursos para IPv4 e IPv6.">
+    <meta name="description" content="Enlaces a documentaci√≥n de fabricantes, simuladores de redes, herramientas y servicios. Tu centro de recursos para IPv4 e IPv6.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -56,7 +56,7 @@
             padding: 80px 0;
         }
 
-        /* HEADER Y NAVEGACI”N */
+        /* HEADER Y NAVEGACI√ìN */
         header {
             position: fixed;
             top: 0;
@@ -79,23 +79,14 @@
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 10px;
         }
 
+        /* LOGO AJUSTADO */
         .header-logo {
-            height: 40px;
+            height: 50px;
             width: auto;
             object-fit: contain;
         }
-
-        .logo-text {
-            font-size: 1.8rem;
-            font-weight: 800;
-            letter-spacing: -1px;
-        }
-
-        .logo-text span.blue { color: var(--accent-cyan); }
-        .logo-text span.cyan { color: var(--accent-blue); }
 
         .nav-right {
             display: flex;
@@ -172,25 +163,31 @@
             margin: 0 auto 40px auto;
         }
 
-        .btn-primary {
-            background-color: var(--accent-cyan);
-            color: var(--bg-color);
-            padding: 15px 35px;
-            border-radius: 5px;
-            font-weight: 700;
+        /* NUEVA FRANJA SOCIAL EN EL HERO */
+        .hero-social-strip {
+            background-color: rgba(17, 34, 64, 0.7);
+            border: 1px solid rgba(0, 168, 232, 0.4);
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(5px);
+        }
+
+        .hero-social-strip h3 {
+            font-size: 1.5rem;
+            color: var(--accent-cyan);
+            margin-bottom: 5px;
+        }
+
+        .hero-social-strip p {
             font-size: 1rem;
-            display: inline-block;
-            transition: all 0.3s ease;
+            color: var(--text-sub);
+            margin-bottom: 20px;
         }
 
-        .btn-primary:hover {
-            background-color: var(--accent-blue);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 168, 232, 0.3);
-            color: var(--bg-color);
-        }
-
-        /* TÕTULOS DE SECCI”N */
+        /* T√çTULOS DE SECCI√ìN */
         .section-title {
             font-size: 2rem;
             font-weight: 700;
@@ -272,7 +269,7 @@
             color: var(--bg-color);
         }
 
-        /* SECCI”N COLABORAR (DESTACADA) */
+        /* SECCI√ìN COLABORAR (DESTACADA) */
         #colaborar {
             background-color: rgba(0, 168, 232, 0.05);
             border-top: 1px solid rgba(0, 168, 232, 0.2);
@@ -313,7 +310,7 @@
             font-size: 1.5rem;
         }
 
-        /* MEN⁄ DESPLEGABLE (PAYPAL, VISA, CRIPTO) */
+        /* MEN√ö DESPLEGABLE (PAYPAL, VISA, CRIPTO) */
         .dropdown {
             position: relative;
             display: inline-block;
@@ -474,6 +471,11 @@
             .hero-content p {
                 font-size: 1rem;
             }
+            
+            .hero-social-strip {
+                padding: 20px;
+                margin-top: 20px;
+            }
 
             .container {
                 padding: 50px 0;
@@ -497,15 +499,12 @@
     <header>
         <div class="nav-container">
             <div class="logo-container">
-                <!-- REEMPLAZA 'logo.png' POR EL NOMBRE DE TU ARCHIVO DE LOGO -->
-                <img src="logo.png" alt="ipv4y6 Logo" class="header-logo">
-                <div class="logo-text">
-                    <span class="blue">ipv4</span><span class="cyan">y6</span>
-                </div>
+                <!-- REEMPLAZA 'logo.png' POR TU LOGO TRANSPARENTE QUE DICE ipv4y6.com -->
+                <img src="logo.png" alt="ipv4y6.com Logo" class="header-logo">
             </div>
             
             <div class="nav-right">
-                <!-- BOT”N DE CAMBIO DE IDIOMA -->
+                <!-- BOT√ìN DE CAMBIO DE IDIOMA -->
                 <button id="langToggle" class="lang-btn" onclick="toggleLanguage()">EN</button>
                 
                 <ul class="nav-links" id="navLinks">
@@ -530,7 +529,26 @@
         <div class="hero-content">
             <h1 data-i18n="hero_title">Tu Centro de Recursos para <span>Redes IPv4 e IPv6</span></h1>
             <p data-i18n="hero_sub">Enlaces directos a documentaci&oacute;n oficial de fabricantes l&iacute;deres, simuladores de protocolos, herramientas de an&aacute;lisis y servicios especializados para profesionales de redes.</p>
-            <a href="#fabricantes" class="btn-primary" data-i18n="hero_btn">Explorar Documentaci&oacute;n</a>
+            
+            <!-- NUEVA FRANJA SOCIAL EN EL HERO -->
+            <div class="hero-social-strip">
+                <h3 data-i18n="hero_social_title">Conecta con ipv4y6.com</h3>
+                <p data-i18n="hero_social_sub">S&iacute;guenos para m&aacute;s contenido sobre REDES</p>
+                <div class="social-links" style="margin-top: 15px;">
+                    <a href="https://www.youtube.com/@ipv4y6" target="_blank" class="social-icon youtube" style="width: 50px; height: 50px; font-size: 1.2rem;">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://www.instagram.com/ipv4y6/" target="_blank" class="social-icon instagram" style="width: 50px; height: 50px; font-size: 1.2rem;">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.facebook.com/ipv4y6" target="_blank" class="social-icon facebook" style="width: 50px; height: 50px; font-size: 1.2rem;">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ipv4y6" target="_blank" class="social-icon linkedin" style="width: 50px; height: 50px; font-size: 1.2rem;">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -634,14 +652,14 @@
             <div class="card">
                 <div class="card-icon"><i class="fas fa-shopping-cart"></i></div>
                 <h3>Amazon</h3>
-                <p data-i18n="amazon_desc">Explora la tienda de Amazon para encontrar productos y libros de redes.</p>
+                <p data-i18n="amazon_desc">Explora la tienda de Amazon para encontrar productos y equipos de redes.</p>
                 <a href="/amazon/" target="_blank" class="card-link" data-i18n="btn_go_amazon">Ir a Amazon</a>
             </div>
             <div class="card">
                 <div class="card-icon"><i class="fas fa-chart-line"></i></div>
                 <h3>Hotmart</h3>
-                <p data-i18n="hotmart_desc">Servicios y soluciones digitales. Visita el sitio web de Hotmart para m&aacute;s informaci&oacute;n.</p>
-                <a href="https://www.hotmart.com" target="_blank" class="card-link" data-i18n="btn_go_hotmart">Ir a Hotmart</a>
+                <p data-i18n="hotmark_desc">Servicios y soluciones digitales. Visita el sitio web de Hotmart para m&aacute;s informaci&oacute;n.</p>
+                <a href="/hotmart/" target="_blank" class="card-link" data-i18n="btn_go_hotmark">Ir a Hotmart</a>
             </div>
         </div>
     </section>
@@ -652,7 +670,7 @@
         <p style="text-align: center; color: var(--text-sub); margin-bottom: 20px;" data-i18n="collaborate_desc">Tu apoyo nos ayuda a mantener y mejorar este centro de recursos gratuitos.</p>
         <div class="payment-methods">
             
-            <!-- MEN⁄ DESPLEGABLE DE PAYPAL (AHORA CON USDT) -->
+            <!-- MEN√ö DESPLEGABLE DE PAYPAL (AHORA CON USDT) -->
             <div class="dropdown">
                 <button class="payment-btn dropdown-toggle">
                     <i class="fab fa-paypal" style="color: #00457C;"></i> PayPal
@@ -666,7 +684,7 @@
                 </div>
             </div>
 
-            <!-- MEN⁄ DESPLEGABLE DE CRIPTO -->
+            <!-- MEN√ö DESPLEGABLE DE CRIPTO -->
             <div class="dropdown">
                 <button class="payment-btn dropdown-toggle">
                     <i class="fab fa-bitcoin" style="color: #F7931A;"></i> Cripto
@@ -705,7 +723,7 @@
                 </div>
             </div>
 
-            <!-- MEN⁄ DESPLEGABLE DE VISA/MASTERCARD (AHORA CON USDT) -->
+            <!-- MEN√ö DESPLEGABLE DE VISA/MASTERCARD (AHORA CON USDT) -->
             <div class="dropdown">
                 <button class="payment-btn dropdown-toggle">
                     <i class="fas fa-credit-card" style="color: #1A1F71;"></i> Visa / MasterCard
@@ -754,7 +772,7 @@
 
     <!-- JAVASCRIPT -->
     <script>
-        // --- SISTEMA DE TRADUCCI”N ---
+        // --- SISTEMA DE TRADUCCI√ìN ---
         const translations = {
             es: {
                 nav_home: "Inicio",
@@ -766,7 +784,8 @@
                 nav_social: "Redes",
                 hero_title: "Tu Centro de Recursos para <span>Redes IPv4 e IPv6</span>",
                 hero_sub: "Enlaces directos a documentaci&oacute;n oficial de fabricantes l&iacute;deres, simuladores de protocolos, herramientas de an&aacute;lisis y servicios especializados para profesionales de redes.",
-                hero_btn: "Explorar Documentaci&oacute;n",
+                hero_social_title: "Conecta con ipv4y6.com",
+                hero_social_sub: "S&iacute;guenos para m&aacute;s contenido sobre REDES",
                 title_manufacturers: "Documentaci&oacute;n de Fabricantes L&iacute;deres",
                 huawei_desc: "Documentaci&oacute;n empresarial oficial, gu&iacute;as de configuraci&oacute;n y recursos t&eacute;cnicos.",
                 nokia_desc: "Portal oficial de documentaci&oacute;n para equipos y soluciones de red Nokia.",
@@ -792,10 +811,10 @@
                 btn_visit_keycdn: "Visitar KeyCDN Tools",
                 btn_visit_kloth: "Visitar Kloth.net",
                 title_products: "Productos y Servicios",
-                amazon_desc: "Explora la tienda de Amazon para encontrar productos y libros de redes.",
-                hotmart_desc: "Servicios y soluciones digitales. Visita el sitio web de Hotmart para m&aacute;s informaci&oacute;n.",
+                amazon_desc: "Explora la tienda de Amazon para encontrar productos y equipos de redes.",
+                hotmark_desc: "Servicios y soluciones digitales. Visita el sitio web de Hotmart para m&aacute;s informaci&oacute;n.",
                 btn_go_amazon: "Ir a Amazon",
-                btn_go_hotmart: "Ir a Hotmart",
+                btn_go_hotmark: "Ir a Hotmart",
                 title_collaborate: "Para Colaborar con ipv4y6",
                 collaborate_desc: "Tu apoyo nos ayuda a mantener y mejorar este centro de recursos gratuitos.",
                 title_social: "S&iacute;guenos y Con&eacute;ctate",
@@ -811,7 +830,8 @@
                 nav_social: "Social",
                 hero_title: "Your Resource Center for <span>IPv4 and IPv6 Networks</span>",
                 hero_sub: "Direct links to official documentation from leading manufacturers, protocol simulators, analysis tools, and specialized services for network professionals.",
-                hero_btn: "Explore Documentation",
+                hero_social_title: "Connect with ipv4y6.com",
+                hero_social_sub: "Follow us for more NETWORKING content",
                 title_manufacturers: "Leading Manufacturer Documentation",
                 huawei_desc: "Official enterprise documentation, configuration guides, and technical resources.",
                 nokia_desc: "Official documentation portal for Nokia network equipment and solutions.",
@@ -838,9 +858,9 @@
                 btn_visit_kloth: "Visit Kloth.net",
                 title_products: "Products and Services",
                 amazon_desc: "Explore the Amazon store to find network products and equipment.",
-                hotmart_desc: "Digital services and solutions. Visit the Hotmart website for more information.",
+                hotmark_desc: "Digital services and solutions. Visit the Hotmart website for more information.",
                 btn_go_amazon: "Go to Amazon",
-                btn_go_hotmart: "Go to Hotmart",
+                btn_go_hotmark: "Go to Hotmart",
                 title_collaborate: "Collaborate with ipv4y6",
                 collaborate_desc: "Your support helps us maintain and improve this free resource center.",
                 title_social: "Follow Us and Connect",
@@ -854,14 +874,11 @@
             currentLang = lang;
             localStorage.setItem('lang', lang);
             
-            // Cambiar el texto del botÛn
             const langBtn = document.getElementById('langToggle');
             langBtn.textContent = lang === 'es' ? 'EN' : 'ES';
             
-            // Cambiar el atributo lang del HTML
             document.documentElement.lang = lang;
 
-            // Iterar sobre todos los elementos con data-i18n y actualizar su texto
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if (translations[lang] && translations[lang][key]) {
@@ -874,11 +891,9 @@
             setLanguage(currentLang === 'es' ? 'en' : 'es');
         }
 
-        // Inicializar el idioma al cargar la p·gina
         document.addEventListener('DOMContentLoaded', () => {
             setLanguage(currentLang);
 
-            // LÛgica del men˙ mÛvil
             const menuToggle = document.getElementById('menuToggle');
             const navLinks = document.getElementById('navLinks');
 
@@ -893,7 +908,6 @@
             });
         });
 
-        // FunciÛn para copiar al portapapeles (se mantiene igual)
         function copyToClipboard(text, btn) {
             navigator.clipboard.writeText(text).then(() => {
                 const originalIcon = btn.innerHTML;
